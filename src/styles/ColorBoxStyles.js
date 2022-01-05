@@ -1,7 +1,7 @@
 import chroma from "chroma-js";
-
+import sizes from "./sizes";
 export default {
-  colorBox: {
+  ColorBox: {
     width: "20%",
     height: (props) => (props.showingFullPalette ? "25%" : "50%"),
     margin: "0 auto",
@@ -11,6 +11,18 @@ export default {
     marginBottom: "-3.5px",
     "&:hover button": {
       opacity: 1,
+    },
+    [sizes.down("lg")]: {
+      width: "25%",
+      height: (props) => (props.showingFullPalette ? "20%" : "50%"),
+    },
+    [sizes.down("md")]: {
+      width: "50%",
+      height: (props) => (props.showingFullPalette ? "10%" : "50%"),
+    },
+    [sizes.down("xs")]: {
+      width: "100%",
+      height: (props) => (props.showingFullPalette ? "5%" : "10%"),
     },
   },
   copyText: {
@@ -72,7 +84,7 @@ export default {
     zIndex: "0",
     width: "100%",
     height: "100%",
-    transition: "transform 0.6 ease-in-out",
+    transition: "transform 0.6s ease-in-out",
     transform: "scale(0.1)",
   },
   showOverlay: {
@@ -90,11 +102,11 @@ export default {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    flexDirection: "column",
     fontSize: "4rem",
     transform: "scale(0.1)",
     opacity: "0",
     color: "white",
-    flexDirection: "column",
     "& h1": {
       fontWeight: "400",
       textShadow: "1px 2px black",
